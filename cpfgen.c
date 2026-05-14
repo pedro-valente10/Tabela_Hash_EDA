@@ -6,7 +6,7 @@
 
 
 
-long hash(char* value) {
+long hash(char* value,int size) {
 
 long converted = strtol(value,NULL,10);
 int result=0;
@@ -14,6 +14,7 @@ int digits=count_digits(converted);
 if (value[0]=='0'){digits++;}
 int sum = long_sum(converted);
 result = sum *first_digit(converted) * int_pow(converted,converted%2 + converted%3);
+result = (result + converted%7 + first_digit(converted))%size;
 if (result<1){result = result *-1;}
 return result;
 
@@ -37,13 +38,21 @@ out = fopen("out.txt","a");
 char *ptr="\n";
 char buf[12];
 long num;
+int n=0;
 if (file == NULL) {
 printf("Unable to open file.\n");
 return 1;
 }
 while(fscanf(file, "%s", buf)==1) {
  //printf("%s : %li\n",buf,hash(buf));
- fprintf(out,"%li\n",hash(buf)); 
+ n++;
+}
+printf("size is %i\n",n);
+fclose(file);
+file = fopen(argv[1],"r");
+while(fscanf(file, "%s", buf)==1) {
+ //printf("%s : %li\n",buf,hash(buf));
+ fprintf(out,"%li\n",hash(buf,n)); 
 }
 //long test = 2;
 //printf("%i\n",int_pow(test,5));
