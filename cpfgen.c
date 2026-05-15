@@ -52,7 +52,8 @@ fclose(file);
 file = fopen(argv[1],"r");
 while(fscanf(file, "%s", buf)==1) {
  //printf("%s : %li\n",buf,hash(buf));
- fprintf(out,"%li\n",hash(buf,n)); 
+int size_com_folga = (int)(n * 1.2);
+fprintf(out,"%li\n",hash(buf, size_com_folga));
 }
 //long test = 2;
 //printf("%i\n",int_pow(test,5));
