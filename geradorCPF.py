@@ -8,10 +8,10 @@ import random
 
 def geraCPF(qtd):
     cpf=""
-    file = open("C:/Users/c2510382/Documents/cpfs.txt","w")
+    file = open("cpfs.txt","w")
     file.write("")
     file.close()
-    file = open("C:/Users/c2510382/Documents/cpfs.txt","a")
+    file = open("cpfs.txt","a")
     for j in range(qtd):
         for i in range(0,11):
             cpf = cpf + str(random.randint(0, 9))
