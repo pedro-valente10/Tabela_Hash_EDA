@@ -1,3 +1,6 @@
+//Henrique Rocha - 2510744
+//Pedro Valente - 2510382
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "simplemath.h"
